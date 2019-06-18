@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" rel="shortcut icon" type="image/x-icon">
+  <link color="#111" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" rel="mask-icon" type="">
+  <title>Income tax calculator for salaried person in bangladesh</title>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css' rel='stylesheet'>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css' rel='stylesheet'>
+  <style>
+      .breadcrumb-item + .breadcrumb-item::before {
+          display: inline-block;
+          padding-right: 0.5rem;
+          color: #6c757d;
+          content: ">";
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="border-top">
+      <div class="progress">
+        <div aria-valuemax="100"
+             aria-valuemin="0"
+             aria-valuenow="60"
+             class="progress-bar bg-success"
+             role="progressbar"
+             style="width: 60%"></div>
+      </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li aria-current="page"
+              class="breadcrumb-item active">
+            <a href="#">Income</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#">Investment</a>
+          </li>
+          <li class="breadcrumb-item">Tax</li>
+        </ol>
+      </nav>
+      <div>
+        <h3>Income Information</h3>
+        <table class="table table-bordered table-striped table-sm">
+          <thead class="thead-dark">
+            <tr>
+              <th>Month</th>
+              <th>Year</th>
+              <th title="usually 50% of gross salary">Basic</th>
+              <th title="house rent allowance">House</th>
+              <th title="medical allowance">Medical</th>
+              <th title="transportation allowance">Transportation</th>
+              <th title="leave fare assistance">LFA</th>
+              <th>Bonus</th>
+              <th title="bank, savings certificate or other interests">Bank interest</th>
+              <th title="other incomes not mentioned in this form">Other incomes</th>
+              <th title="total income including salary and other incomes">Total income</th>
+              <th title="tax deducted at salary source">Salary TDS</th>
+              <th title="tax deducted at bank interest source">Bank interest TDS</th>
+            </tr>
+          </thead>
+          <tbody class="tbody-dark">
+            <tr>
+              <td>Month</td>
+              <td>Year</td>
+              <td title="usually 50% of gross salary"><input class="form-control" type="number"></td>
+              <td title="house rent allowance"><input class="form-control" type="number"></td>
+              <td title="medical allowance"><input class="form-control" type="number"></td>
+              <td title="transportation allowance"><input class="form-control" type="number"></td>
+              <td title="leave fare assistance"><input class="form-control" type="number"></td>
+              <td><input class="form-control" type="number"></td>
+              <td title="bank, savings certificate or other interests"><input class="form-control" type="number"></td>
+              <td title="other incomes not mentioned in this form"><input class="form-control" type="number"></td>
+              <td title="total income including salary and other incomes">Total income</td>
+              <td title="tax deducted at salary source"><input class="form-control" type="number"></td>
+              <td title="tax deducted at bank interest source"><input class="form-control" type="number"></td>
+            </tr>
+            <tr>
+              <td>Month</td>
+              <td>Year</td>
+              <td title="usually 50% of gross salary"><input class="form-control" type="number"></td>
+              <td title="house rent allowance"><input class="form-control" type="number"></td>
+              <td title="medical allowance"><input class="form-control" type="number"></td>
+              <td title="transportation allowance"><input class="form-control" type="number"></td>
+              <td title="leave fare assistance"><input class="form-control" type="number"></td>
+              <td><input class="form-control" type="number"></td>
+              <td title="bank, savings certificate or other interests"><input class="form-control" type="number"></td>
+              <td title="other incomes not mentioned in this form"><input class="form-control" type="number"></td>
+              <td title="total income including salary and other incomes">Total income</td>
+              <td title="tax deducted at salary source"><input class="form-control" type="number"></td> 
+              <td title="tax deducted at bank interest source"><input class="form-control" type="number"></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <h3>Tax rebate on investment</h3>
+        <table class="table table-bordered table-striped table-sm">
+          <thead class="thead-dark">
+            <tr>
+              <th title="investment name">Investment</th>
+              <th title="maximum allowed investment">Maximum rebatable</th>
+              <th title="invested amount">Amount</th>
+            </tr>
+          </thead>
+          <thead class="tbody-light">
+            <tr>
+              <td title="investment name">Monthly DPS</td>
+              <td class="text-right" title="maximum allowed investment">60,000</td>
+              <td title="invested amount"><input class="form-control" type="text"></td>
+            </tr>
+            <tr>
+              <td title="investment name">Bangladesh Govt. Savings Certificate</td>
+              <td class="text-right" title="maximum allowed investment">30,00,000</td>
+              <td title="invested amount"><input class="form-control" type="text"></td>
+            </tr>
+            <tr>
+              <td title="investment name">Life Insurance Premium</td>
+              <td title="maximum allowed investment"></td>
+              <td title="invested amount"><input class="form-control" type="text"></td>
+            </tr>
+            <tr>
+              <td>Total Investment</td>
+              <td></td>
+              <td class="text-right">40,000</td>
+            </tr>
+            <tr>
+              <td>Tax rebatable investment (25% of taxable income or an investment less than that)</td>
+              <td class="text-right">60,000-15,000</td>
+              <td class="text-right">40,000</td>
+            </tr>
+          </thead>
+        </table>
+        <h3>Total tax on taxable income</h3>
+        <table class="table table-bordered table-striped table-sm">
+          <thead class="thead-dark">
+            <tr>
+              <th>Tax threshold</th>
+              <th>Amount</th>
+              <th>Rate</th>
+              <th>Tax</th>
+            </tr>
+          </thead>
+          <thead class="tbody-light">
+            <tr>
+              <td>First Taka 2,50,000</td>
+              <td>2,50,000</td>
+              <td>0%</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Next Taka 4,00,000</td>
+              <td>4,00,000</td>
+              <td>10%</td>
+              <td>40,000</td>
+            </tr>
+            <tr>
+              <td class="text-right" colspan="2"><strong>Total taxable income</strong> : <span>6,50,000</span></td>
+              <td class="text-right" colspan="2"><strong>Total tax:</strong> 40,000</td>
+            </tr>
+          </thead>
+        </table>
+        <h3>Tax Paid</h3>
+        <table class="table table-bordered table-striped table-sm">
+          <thead class="thead-dark">
+            <tr>
+              <th>Source</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <thead class="tbody-light">
+            <tr>
+              <td>Tax paid at salary source</td>
+              <td>12,000</td>
+            </tr>
+            <tr>
+              <td>Tax paid at bank interest source</td>
+              <td>400</td>
+            </tr>
+            <tr>
+              <td>Tax paid at other sources</td>
+              <td>2,000</td>
+            </tr>
+            <tr>
+              <td>Advanced tax paid in past years</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td>14,400</td>
+            </tr>
+          </thead>
+        </table>
+        <h3>Payable tax</h3>
+        <table class="table table-bordered table-striped table-sm">
+          <thead class="thead-dark">
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <thead class="tbody-light">
+            <tr>
+              <td>Total income</td>
+              <td></td>
+              <td>4,45,000</td>
+            </tr>
+            <tr>
+              <td>Tax exempt on income</td>
+              <td></td>
+              <td>45,000</td>
+            </tr>
+            <tr>
+              <td>Total taxable income</td>
+              <td>4,45,000-45,000</td>
+              <td>4,00,000</td>
+            </tr>
+            <tr>
+              <td>Total tax on taxable income</td>
+              <td></td>
+              <td>40,000</td>
+            </tr>
+            <tr>
+              <td>Tax rebate on taxable income</td>
+              <td></td>
+              <td>15,000</td>
+            </tr>
+            <tr>
+              <td>Net tax on taxable income</td>
+              <td>40,000-15,000</td>
+              <td>25,000</td>
+            </tr>
+            <tr>
+              <td>Total tax paid</td>
+              <td></td>
+              <td>14,400</td>
+            </tr>
+            <tr>
+              <td>Net payable tax</td>
+              <td>25,000-14,400</td>
+              <td>15,600</td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'></script> 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+  </div>
+</body>
+</html>
